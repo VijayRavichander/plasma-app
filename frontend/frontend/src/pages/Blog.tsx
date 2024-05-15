@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import Spinner from "../components/Spinner";
 import { useBlog } from "../hooks"
 import { EntireBlog } from "../components/EntireBlog";
 import { AppBar } from "../components/AppBar";

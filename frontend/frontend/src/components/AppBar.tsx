@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
 import { Avatar } from "./BlogCard"
-import { useBlogs } from "../hooks";
 
 
 export const AppBar = ({sortBlogs}: {sortBlogs?: () => void  | null }) => {
