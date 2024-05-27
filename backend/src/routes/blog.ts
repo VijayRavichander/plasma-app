@@ -55,6 +55,7 @@ BlogRouter.post('', async (c) => {
         data: {
             title: body.title, 
             content: body.content, 
+            contentHTML: body.contentHMTL,
             authorId: authorId
         }
     })
@@ -80,7 +81,8 @@ BlogRouter.put('', async (c) => {
         }, 
         data: {
             title: body.title, 
-            content: body.content, 
+            content: body.content,
+            contentHTML: body.contentHMTL, 
         }   
     })
 
@@ -99,6 +101,7 @@ BlogRouter.get('/all', async (c) => {
     const blogs = await prisma.post.findMany({
         select: {
             content: true, 
+            contentHTML: true,
             title: true, 
             id: true, 
             createdAt: true, 
@@ -134,6 +137,7 @@ BlogRouter.get('/:id', async (c) => {
                 id: true, 
                 title: true, 
                 content: true, 
+                contentHTML: true,
                 createdAt: true, 
                 author: {
                     select: {

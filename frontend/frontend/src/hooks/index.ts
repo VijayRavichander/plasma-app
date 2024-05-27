@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export interface Blog{
     "content": string, 
+    "contentHTML": string,
     "title": string, 
     "id": string, 
     "createdAt": string, 
@@ -50,7 +51,6 @@ export const useBlogs = () => {
     const [blogs, setBlogs] = useState<Blog[]>([]);
 
     useEffect(() => {
-        console.log("UseEffect")
         axios.get(`${BACKEND_URL}/api/v1/blog/all`, {
             headers: {
                 Authorization: localStorage.getItem("token")

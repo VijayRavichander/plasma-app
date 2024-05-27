@@ -21,7 +21,12 @@ export const EntireBlog = ({blog}: {blog : Blog}) => {
                     {convertDate(blog.createdAt)}
                 </div>
                 <div className="text-base text-justify">
-                    {blog.content}
+                    {/* <div>
+                        {blog.content}
+                    </div> */}
+                    <div className="prose">
+                        <div dangerouslySetInnerHTML={{ __html: blog.contentHTML }}  />
+                    </div>
                 </div>
             </div>
             <div className="col-span-4 px-2">

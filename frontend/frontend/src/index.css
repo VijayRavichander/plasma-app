@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.tiptap {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 1rem 0rem;
+    min-width: 100%;
+    background-color: #f6f6f6;
+}
