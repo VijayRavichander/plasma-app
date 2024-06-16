@@ -3,7 +3,7 @@ import { useState } from "react"
 import { AppBar } from "../components/AppBar"
 import axios from "axios"
 import { BACKEND_URL } from "../config"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useEditor, EditorContent} from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import TipTapMenuBar from "../components/TipTapMenu"
@@ -13,6 +13,8 @@ export const Edit = () => {
     const [title, setTitle] = useState("")
     const [editorState, setEditorState] = useState("")
     const [editorText, setEditorText] = useState("")
+    
+    const { id } = useParams()
 
     const editor = useEditor({
         extensions: [StarterKit],
@@ -22,7 +24,7 @@ export const Edit = () => {
           setEditorText(editor.getText());
         },
       })
-
+    
     const navigate = useNavigate()
     
     return <div>
@@ -60,7 +62,8 @@ export const Edit = () => {
                         const response = await axios.put(`${BACKEND_URL}/api/v1/blog`, {
                             title, 
                             content: editorText, 
-                            contentHMTL: editorState
+                            contentHMTL: editorState,
+                            id: id
                         }, {
                             headers: 
                             {
